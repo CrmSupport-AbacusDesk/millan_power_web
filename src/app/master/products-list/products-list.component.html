@@ -107,7 +107,7 @@
                                 </th>
                                 <th class="w100">
                                     <div class="search-form">
-                                        <input type="text" placeholder="Search ..." [(ngModel)]="filter.company_item_code"  (keyup.enter)="current_page = 1;getProductList('')">
+                                        <input type="text" placeholder="Search ..." [(ngModel)]="filter.product_code"  (keyup.enter)="current_page = 1;getProductList('')">
                                         <i class="material-icons">search</i>
                                     </div>
                                 </th>
@@ -152,7 +152,7 @@
                                 <td class="w140">{{val.category_name |titlecase}}</td>
                                 <!-- <td class="w140">{{val.sub_category_name |titlecase}}</td> -->
                                 <td>{{val.product_name |titlecase}}</td>
-                                <td class="w100">{{val.company_item_code |titlecase}}</td>
+                                <td class="w100">{{val.product_code |titlecase}}</td>
                                 <td class="w70 text-right">&#x20B9; {{val.mrp ? val.mrp:'N/A'}}</td>
                                 <td class="w90 text-center">
                                     {{val.karigar_point ? val.karigar_point:'0'}}
@@ -223,7 +223,7 @@
                         <div class="option-field">
                             <div class="control-field">
                                 <mat-form-field class="cs-input">
-                                    <input matInput placeholder="Product Code" name="company_item_code  "  [(ngModel)]="productForm.company_item_code" #company_item_code="ngModel" required >
+                                    <input matInput placeholder="Product Code" name="product_code"  [(ngModel)]="productForm.product_code" #product_code="ngModel" required >
                                 </mat-form-field>  
                             </div>
                         </div>

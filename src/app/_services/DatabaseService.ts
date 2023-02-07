@@ -20,8 +20,8 @@
 // live url
 
 
-// myurl = ' https://apps.abacusdesk.com/aimyluminaries/dd_api/';
-// uploadUrl = " https://apps.abacusdesk.com/aimyluminaries/dd_api/app/uploads/";
+// myurl = 'https://apps.abacusdesk.com/milanpower/dd_api/';
+// uploadUrl = "https://apps.abacusdesk.com/milanpower/dd_api/app/uploads/";
 
         // testing url
         myurl = 'https://devcrm.abacusdesk.com/milanpower/dd_api/';
@@ -47,6 +47,8 @@
         currentUrl:any='';
         previousUrl:any='';
         filters : any={};
+        img_url: string;
+        catalog_img_url: string;
         // public _pushNotificationService: PushNotificationsService
         constructor(public location: Location, public http: HttpClient,public dialog: DialogComponent,private router: Router,public route: ActivatedRoute) {
             this.currentUrl = this.router.url;

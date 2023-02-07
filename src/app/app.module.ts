@@ -110,6 +110,7 @@ import {GiftsComponent} from '../app/gifts/gifts.component';
 import { AddCouponCodesComponent } from './coupon-codes/add-coupon-codes/add-coupon-codes.component';
 import { MasterTabComponent } from './master/master-tab/master-tab.component';
 import { SubcategoryListComponent } from './master/subcategory-list/subcategory-list.component';
+import { MainCategoryComponent } from './main-category/main-category.component';
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -130,6 +131,7 @@ const routes: Routes = [
   {path: 'products-list', component:ProductsListComponent , canActivate: [AuthGuard] },
   {path: 'demo-karigar-list', component:DemoKarigarComponent , canActivate: [AuthGuard] },
   {path: 'news-list', component:NewsComponent , canActivate: [AuthGuard] },
+  {path: 'main-category-list', component: MainCategoryComponent , canActivate: [AuthGuard] },
   {path: 'video-list', component:VideoComponent , canActivate: [AuthGuard] },
   {path: 'login-banner-list', component:LoginBannerComponent , canActivate: [AuthGuard] },
   {path: 'app-banner-list', component:AppBannerComponent , canActivate: [AuthGuard] },
@@ -196,6 +198,7 @@ const routes: Routes = [
     ProductcategoryListComponent,
     ProductsListComponent,
     NewsComponent,
+    MainCategoryComponent,
     VideoComponent,
     LoginBannerComponent,
     SalesExecutiveComponent,
