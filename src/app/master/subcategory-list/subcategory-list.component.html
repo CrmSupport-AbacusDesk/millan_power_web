@@ -1,0 +1,118 @@
+<div class="loader" *ngIf = "loading_list">
+    <div class="loding-logo">
+        <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <div class="main-container ">
+    <div class="middle-container ">
+        <div class="tabs-list">
+            <button class="mr10" mat-icon-button routerLink="/main-category-list">
+                <mat-icon>arrow_back</mat-icon>
+              </button>
+            <h1>Master / Product Category / {{category_name}}</h1>
+            <!-- <div class="input-field">
+                <input type="text" placeholder="Search..." [(ngModel)]="filter.search"  (keyup.enter)="current_page = 1; getCategoryList()">
+                <i class="material-icons">
+                    search
+                </i>
+            </div> -->
+        </div>
+        <div class="left-auto">
+          <a  mat-icon-button (click)="getSubCategoryList()">
+            <mat-icon>refresh</mat-icon>
+          </a>
+        </div>
+        
+    </div>
+    <div class="container-outer">
+        <div class="image-list">
+            <ul>
+                <li *ngFor="let val of sub_categories; let i = index">
+                    
+                    <div class="image-section1">
+                        <ng-container>
+                          <span class="material-icons" style="opacity: 0.3; font-size: xxx-large" *ngIf="val.actual_image_name.length==0">insert_photo</span>
+                          <img  [src]="uploadUrl + val.actual_image_name" *ngIf="val.actual_image_name.length > 0" style="cursor: inherit;" >
+                          <!-- (click)="openDialog(img_url + val.actual_image_name, 'test2' )" -->
+                        </ng-container>
+                    </div>
+                    
+                    <div class="hvr-edit">
+                        <a class="delete-icn"><i class="material-icons" (click)="deleteProduct(val.sub_category)">delete_sweep</i></a>
+                        <a class="edit-icn"><i class="material-icons"   (click)="toggle = !toggle; editCategory(val.sub_category ); val.sub_category = val.sub_category">edit</i></a>
+                    </div>
+                    <div class="bottom-section">
+                        <h1>{{val.sub_category  | titlecase}}</h1>
+                        <!-- <h6>Total Product: <strong>{{val.product_count}}</strong></h6> -->
+                    </div>
+                </li>
+            </ul>
+        </div> 
+  
+        <div class="date-not " *ngIf="!loading_list && !sub_categories.length">
+          <div class="no-img text-center">
+              <img src="assets/result-not-found.png" class="h300"> 
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="side-main" [ngClass] ="{'on' : toggle == true}">
+    <div class="category-field" >
+        <!-- f.form.valid &&  -->
+        <form name="category" (ngSubmit)="savesubcategory(f)" #f="ngForm" novalidate autocomplete="off">
+            <div class="loader" *ngIf = "loading_list">
+                <div class="loding-logo">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </div>
+            <div class="category-hadding">
+                <h2>Add Sub Product</h2>
+                <i class="material-icons" (click)="toggle = !toggle">clear</i>
+            </div>
+            
+            <div class="add-image">
+                <div class="option-field">
+                    <div class="control-field">
+                        <mat-form-field class="cs-input">
+                            <input matInput placeholder="Sub Product Name" name="sub_category" [(ngModel)]="category.sub_category" #sub_category="ngModel" required>
+                        </mat-form-field>  
+                    </div>
+                </div>
+                
+                <div class="uploade-image">
+                    <h4>Upload Image</h4>
+                    <ul>
+                        <li class="add-bg-1">
+                            <label>
+                                <input type="file" (change)="onUploadChange1($event)" style="display:none;" accept=".png, .jpg, .jpeg"  />
+                                <!-- <img  [src]="uploadUrl + category.actual_image_name" alt="" id="img"> -->
+
+                                <img  [src]="img ? uploadUrl + category.actual_image_name : category.image" alt="" id="img">
+
+                                <div class="other" style="position: absolute;">
+                                    <i class="material-icons">add</i>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="save btn-save mt90" [ngClass]="{loading: savingData}">
+                    <button mat-button type="submit">SAVE</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    
+    <div class="side-bg" (click)="toggle = !toggle"></div>
+  </div>
+  <div class="fab-btns">
+    <button (click)="toggle = !toggle; addCategory()" mat-fab>
+        <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  
