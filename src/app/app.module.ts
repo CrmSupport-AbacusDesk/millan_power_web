@@ -126,7 +126,7 @@ const routes: Routes = [
   {path: 'gift-list', component:GiftListComponent , canActivate: [AuthGuard] },
   {path: 'gift-detail/:gift_id', component:GiftDetailComponent , canActivate: [AuthGuard] },
   {path: 'productcategory-list', component:ProductcategoryListComponent , canActivate: [AuthGuard] },
-  {path: 'productsubcatgory/:id/:category_name', component:SubcategoryListComponent , canActivate: [AuthGuard] },
+  {path: 'productsubcatgory/:id', component:SubcategoryListComponent , canActivate: [AuthGuard] },
   {path: 'referral-master', component:ReferralMasterComponent , canActivate: [AuthGuard] },
   {path: 'products-list', component:ProductsListComponent , canActivate: [AuthGuard] },
   {path: 'demo-karigar-list', component:DemoKarigarComponent , canActivate: [AuthGuard] },

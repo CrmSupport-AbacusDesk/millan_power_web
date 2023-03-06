@@ -83,9 +83,9 @@ export class SubcategoryListComponent implements OnInit {
  {
    console.log(sub_category);
    console.log(this.sub_categories);
-   
+    //  this.category = this.products.filter( x => x.id==id)[0];
      this.category = this.sub_categories.filter( x => x.sub_category == sub_category)[0];    
-     this.category.image = this.uploadUrl + this.category.actual_image_name;
+     this.category.image = this.category.actual_image_name;
      console.log(this.category);
  }
 
@@ -148,6 +148,7 @@ export class SubcategoryListComponent implements OnInit {
  onUploadChange1(evt: any) {
      console.log(evt);
      const file = evt.target.files[0];
+     this.img=true;
      if (file) {
          const reader = new FileReader();
          reader.onload = this.handleReaderLoaded1.bind(this);

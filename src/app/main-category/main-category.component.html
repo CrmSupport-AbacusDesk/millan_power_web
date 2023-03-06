@@ -25,11 +25,11 @@
         <app-master-tab></app-master-tab>
         <div class="image-list">
             <ul>
-                <li *ngFor="let val of categories; let i = index"  style="    cursor: pointer;">
+                <li *ngFor="let val of categories; let i = index"  style="cursor: pointer;">
                     
-                    <div class="image-section1">
+                    <div class="image-section1" (click)="goToSubCat(val.id)">
                         <span class="material-icons" style="opacity: 0.3; font-size: xxx-large" *ngIf="val.actual_image_name.length==0">insert_photo</span>
-                        <img  [src]="uploadUrl + val.actual_image_name" *ngIf="val.actual_image_name.length > 0" (click)="goToSubCat(val)" style="cursor: inherit;">
+                        <img  [src]="uploadUrl + val.actual_image_name" *ngIf="val.actual_image_name.length > 0" style="cursor: inherit;">
                         <!-- (click)="openDialog(img_url + val.actual_image_name, 'test2' )" -->
                     </div>
                     
@@ -37,7 +37,7 @@
                         <a class="delete-icn" *ngIf="val.sub_category_count==0" (click)="deleteProduct(val.main_category)"><i class="material-icons">delete_sweep</i></a>
                         <a class="edit-icn" (click)="toggle = !toggle; editCategory(val.main_category ); val.mainCategory = val.main_category"><i class="material-icons">edit</i></a>
                     </div>
-                    <div class="bottom-section" (click)="goToSubCat(val)">
+                    <div class="bottom-section" (click)="goToSubCat(val.id)">
                         <h1>{{val.main_category}}</h1>
                         <p><span>Total Product</span>: {{val.sub_category_count}}</p>
                         <!-- <a *ngIf="val.description" (click)="openDial(val.description,'description')">View Description</a> -->
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="category-hadding">
-                <h2>Add Product</h2>
+                <h2>{{category.id ? 'Edit' : 'Add'}} Category</h2>
                 <i class="material-icons" (click)="toggle = !toggle">clear</i>
             </div>
             
@@ -67,7 +67,7 @@
                 <div class="option-field">
                     <div class="control-field">
                         <mat-form-field class="cs-input">
-                            <input matInput placeholder="Product Name" name="main_category" [(ngModel)] = "category.main_category" #main_category="ngModel" required>
+                            <input matInput placeholder="Category Name" name="main_category" [(ngModel)] = "category.main_category" #main_category="ngModel" required>
                         </mat-form-field>  
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                             <label>
                                 <input type="file" (change)="onUploadChange1($event)" style="display:none;" accept=".png, .jpg, .jpeg"  />
                                 <img  [src]="img ? category.image : uploadUrl + category.actual_image_name" alt="" id="img">
-                                <div class="other" style="position: absolute;">
+                                <div class="other" style="position: absolute;"  *ngIf="category.actual_image_name == '' || category.image == ''">
                                     <i class="material-icons">add</i>
                                 </div>
                             </label>

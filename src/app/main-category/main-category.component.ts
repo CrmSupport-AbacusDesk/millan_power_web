@@ -68,9 +68,10 @@ export class MainCategoryComponent implements OnInit {
     
     editCategory(main_category)
     {
+        console.log(main_category);
         console.log(this.categories);
         this.category = this.categories.filter( x => x.main_category == main_category)[0];    
-        this.category.image = this.uploadUrl + this.category.actual_image_name;
+        this.category.image = this.category.actual_image_name;
         console.log(this.category);
     }
     
@@ -245,16 +246,12 @@ export class MainCategoryComponent implements OnInit {
         
     }
 
-    goToSubCat(val){
+    goToSubCat(id, main_category){
+console.log(id);
+console.log(main_category);
 
-
-      
-
-            this.router.navigate(['productsubcatgory' +'/' + val.id + '/'+ val.main_category]);
-     
-
-    
-
+            this.router.navigate(['productsubcatgory' +'/' + id]);
+  
     }
 
     

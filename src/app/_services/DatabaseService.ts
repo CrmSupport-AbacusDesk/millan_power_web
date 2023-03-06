@@ -20,17 +20,14 @@
 // live url
 
 
-// myurl = 'https://apps.abacusdesk.com/milanpower/dd_api/';
-// uploadUrl = "https://apps.abacusdesk.com/milanpower/dd_api/app/uploads/";
+myurl = 'https://apps.abacusdesk.com/milanpower/dd_api/';
+uploadUrl = "https://apps.abacusdesk.com/milanpower/dd_api/app/uploads/";
 
         // testing url
-        myurl = 'https://devcrm.abacusdesk.com/milanpower/dd_api/';
-        uploadUrl = "https://devcrm.abacusdesk.com/milanpower/dd_api/app/uploads/";
+        // myurl = 'https://devcrm.abacusdesk.com/milanpower/dd_api/';
+        // uploadUrl = "https://devcrm.abacusdesk.com/milanpower/dd_api/app/uploads/";
         
-        // local
-        // myurl = 'http://localhost/advance_api/';
-        // uploadUrl = "http://localhost/advance_api/app/uploads/";
-        
+       
         //cloneed
         // myurl = 'http://phpstack-83335-1175063.cloudwaysapps.com/dd_api/';
         // uploadUrl = "http://phpstack-83335-1175063.cloudwaysapps.com/dd_api/app/uploads/";

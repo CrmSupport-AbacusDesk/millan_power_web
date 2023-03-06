@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="category-hadding">
-                <h2>Add Sub Product</h2>
+                <h2>{{category.sub_category_id ? 'Edit' : 'Add'}} Product</h2>
                 <i class="material-icons" (click)="toggle = !toggle">clear</i>
             </div>
             
@@ -76,7 +76,7 @@
                 <div class="option-field">
                     <div class="control-field">
                         <mat-form-field class="cs-input">
-                            <input matInput placeholder="Sub Product Name" name="sub_category" [(ngModel)]="category.sub_category" #sub_category="ngModel" required>
+                            <input matInput placeholder="Product Name" name="sub_category" [(ngModel)]="category.sub_category" #sub_category="ngModel" required>
                         </mat-form-field>  
                     </div>
                 </div>
@@ -89,9 +89,9 @@
                                 <input type="file" (change)="onUploadChange1($event)" style="display:none;" accept=".png, .jpg, .jpeg"  />
                                 <!-- <img  [src]="uploadUrl + category.actual_image_name" alt="" id="img"> -->
 
-                                <img  [src]="img ? uploadUrl + category.actual_image_name : category.image" alt="" id="img">
+                                <img  [src]="img ? category.image : uploadUrl + category.actual_image_name" alt="" id="img">
 
-                                <div class="other" style="position: absolute;">
+                                <div class="other" style="position: absolute;" *ngIf="category.actual_image_name == '' || category.image == ''">
                                     <i class="material-icons">add</i>
                                 </div>
                             </label>
